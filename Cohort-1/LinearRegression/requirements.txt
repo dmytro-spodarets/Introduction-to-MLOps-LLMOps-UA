@@ -6,3 +6,4 @@ pandas
 pydantic
 wandb
 boto3
+ray[all]

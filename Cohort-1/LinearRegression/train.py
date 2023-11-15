@@ -1,9 +1,11 @@
 import wandb
 import torch
+import ray
 import torch.nn as nn
 import torch.optim as optim
 
 run = wandb.init(project='car_price_prediction', name='linear_regression')
+ray.init()
 
 years = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010]
 prices = [10000, 9500, 9000, 8500, 8000, 7500, 7000, 6500, 6000, 5500, 5000]
