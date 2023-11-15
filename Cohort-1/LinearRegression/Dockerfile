@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM pytorch/manylinux-cpu:latest
 
 ARG WANDB_API_KEY
 ENV WANDB_API_KEY=$WANDB_API_KEY
