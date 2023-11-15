@@ -30,7 +30,7 @@ variable "service_memory" {
 
 variable "app_port_server_lr_model" {
   type        = number
-  default     = 80
+  default     = 5000
   description = ""
 }
 
