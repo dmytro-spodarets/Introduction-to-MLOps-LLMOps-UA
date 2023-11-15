@@ -1,7 +1,7 @@
 import os
 import wandb
 
-wandb_api_key = os.getenv('WANDB_API_KEY')
+wandb_api_key = os.getenv("WANDB_API_KEY")
 wandb.login(key=wandb_api_key)
 
 run = wandb.init()

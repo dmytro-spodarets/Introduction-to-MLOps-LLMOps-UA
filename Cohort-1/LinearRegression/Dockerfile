@@ -1,5 +1,8 @@
 FROM python:3.9-slim
 
+ARG WANDB_API_KEY
+ENV WANDB_API_KEY=$WANDB_API_KEY
+
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
