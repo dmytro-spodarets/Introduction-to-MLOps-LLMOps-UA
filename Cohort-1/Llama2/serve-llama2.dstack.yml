@@ -1,0 +1,12 @@
+type: service
+
+python: "3.11"
+
+env:
+  - MODEL=NousResearch/Llama-2-7b-hf
+
+port: 8000
+
+commands:
+  - pip install vllm
+  - python -m vllm.entrypoints.openai.api_server --model $MODEL --port 8000

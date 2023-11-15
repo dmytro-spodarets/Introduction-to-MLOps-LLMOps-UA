@@ -1,0 +1,8 @@
+type: service
+
+image: python:3.11
+
+port: 8000
+
+commands:
+  - python3 -m http.server
