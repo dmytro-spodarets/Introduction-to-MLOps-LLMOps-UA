@@ -19,6 +19,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v4
+
       - name: Run training on the Ray cluster
         id: build-image
         env:
