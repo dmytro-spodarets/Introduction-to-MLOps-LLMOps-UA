@@ -25,7 +25,7 @@ jobs:
           path: "Cohort-1/LinearRegression/requirements.txt"
 
       - name: Run training on the Ray cluster
-        id: build-image
+        id: run-training
         env:
             WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
         run: |
