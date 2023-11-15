@@ -12,14 +12,14 @@ terraform {
 
   required_version = ">= 1.5.4"
 
-backend "local" {}
-#backend "remote" {
-#    hostname = "spodarets.scalr.io"
-#    organization = "env-v0o06dgi6sivpq3v2"
-#    workspaces {
-#      name = "MLFlow-infra"
-#    }
-#  }
+#backend "local" {}
+backend "remote" {
+    hostname = "spodarets.scalr.io"
+    organization = "env-v0o06dgi6sivpq3v2"
+    workspaces {
+      name = "LR-Model-API"
+    }
+  }
 }
 
 provider "aws" {
