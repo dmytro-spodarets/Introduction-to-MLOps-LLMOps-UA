@@ -29,6 +29,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
+          WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
         run: |
           cd Cohort-1/LinearRegression
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
