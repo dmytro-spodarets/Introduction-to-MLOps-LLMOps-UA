@@ -1,0 +1,31 @@
+cluster_name: AWS-LLMOps
+
+max_workers: 5
+
+# Cloud-provider specific configuration.
+provider:
+    type: aws
+    region: us-east-2
+
+available_node_types:
+  ray.head.default:
+    resources: {}
+    node_config:
+      InstanceType: m5.large
+      ImageId: ami-0aa5328ffcf5d34ac
+
+  ray.worker.default:
+    min_workers: 0
+    max_workers: 5
+    resources: {}
+    node_config:
+      InstanceType: m5.2xlarge
+      ImageId: ami-0aa5328ffcf5d34ac
+
+head_node_type: ray.head.default
+
+head_setup_commands:
+  - ray stop
+  - RAY_GRAFANA_HOST=3.15.175.158:3000 RAY_PROMETHEUS_HOST=3.15.175.158:9090 RAY_PROMETHEUS_NAME=Prometheus RAY_GRAFANA_IFRAME_HOST=3.15.175.158:3000 RAY_DASHBOARD_HOST=0.0.0.0 ray start --head
+setup_commands:
+  - pip install -U "ray[all]"
