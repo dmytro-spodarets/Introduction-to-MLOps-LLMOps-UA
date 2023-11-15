@@ -18,13 +18,13 @@ variable "tags" {
 
 variable "service_cpu" {
   type        = number
-  default     = 2048
+  default     = 1024
   description = "The number of CPU units reserved for container."
 }
 
 variable "service_memory" {
   type        = number
-  default     = 6144
+  default     = 2048
   description = "The amount (in MiB) of memory reserved for container."
 }
 
