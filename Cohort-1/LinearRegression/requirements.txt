@@ -1,0 +1,8 @@
+ultralytics
+fastapi
+torch
+uvicorn
+pandas
+pydantic
+wandb
+boto3
