@@ -1,0 +1,28 @@
+name: Train Linear Regression
+
+on: workflow_dispatch
+
+env:
+  AWS_REGION: us-east-1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Run training on the Ray cluster
+        id: build-image
+        env:
+            WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
+        run: |
+          cd Cohort-1/LinearRegression
+          python train.py
