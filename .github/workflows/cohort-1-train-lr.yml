@@ -21,6 +21,8 @@ jobs:
 
       - name: Install Python dependencies
         uses: py-actions/py-dependency-install@v4
+        with:
+          path: "Cohort-1/LinearRegression/requirements.txt"
 
       - name: Run training on the Ray cluster
         id: build-image
