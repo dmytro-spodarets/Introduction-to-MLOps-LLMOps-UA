@@ -9,7 +9,7 @@ resource "aws_apprunner_service" "server_lr_model" {
     }
 
     image_repository {
-      image_identifier      = "493395458839.dkr.ecr.us-east-1.amazonaws.com/linear-regression:11a9d4624e9acabd60ad1c59db2d3c2648d99ccb"
+      image_identifier      = "493395458839.dkr.ecr.us-east-1.amazonaws.com/linear-regression:721a9ab64b50db9f6f583ee9a96b53ecc35402eb"
       image_repository_type = "ECR"
 
       image_configuration {
