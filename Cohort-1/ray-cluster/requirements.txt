@@ -2,6 +2,7 @@
 # Example: pip install -r requirements.txt
 
 # Base ----------------------------------------
+ray[all]
 ultralytics
 wandb
 matplotlib>=3.3.0
