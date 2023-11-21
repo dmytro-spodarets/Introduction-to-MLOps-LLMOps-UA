@@ -2,9 +2,6 @@ name: Deploy YOLOv8
 
 on: workflow_dispatch
 
-env:
-  AWS_REGION: us-east-1
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -15,13 +12,6 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10.9'
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
 
       - name: Install Python dependencies
         uses: py-actions/py-dependency-install@v4
@@ -34,4 +24,4 @@ jobs:
             WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
         run: |
           cd Cohort-1/YOLOv8
-          nohup RAY_ADDRESS='ray://3.15.175.158:10001' serve run object_detection:entrypoint > output.log 2>&1 &
+          RAY_ADDRESS='http://3.15.175.158:8265' ray job submit --working-dir . -- sh deploy_script.sh
