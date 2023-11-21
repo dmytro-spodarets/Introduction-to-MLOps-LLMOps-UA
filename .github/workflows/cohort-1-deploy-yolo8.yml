@@ -24,4 +24,4 @@ jobs:
             WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
         run: |
           cd Cohort-1/YOLOv8
-          RAY_ADDRESS='http://3.15.175.158:8265' ray job submit --no-wait--working-dir . -- sh deploy_script.sh
+          RAY_ADDRESS='http://3.15.175.158:8265' ray job submit --no-wait --working-dir . -- sh deploy_script.sh
